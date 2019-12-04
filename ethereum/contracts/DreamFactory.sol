@@ -9,9 +9,9 @@ contract DreamFactory {
      * Create a new dream story
      * @param min_down_price minimum download price in wei
      */
-    function createDreamStory( uint _min_down_price ) public {
+    function createDreamStory( uint _min_down_price, string _title, string _story ) public {
         // create a new dream story
-        address new_story = new DreamStory( _min_down_price, msg.sender );
+        address new_story = new DreamStory( _min_down_price, msg.sender, _title, _story );
         // save the deployed address
         deployed_dream_stories.push(new_story);
     }
@@ -28,6 +28,10 @@ contract DreamFactory {
 // dream story contract
 contract DreamStory {
     //// state variables
+    //dream story title
+    string public story_title;
+    //dream story
+    string public story;
     // download struct
     struct Download {
         // address of the downloder
@@ -73,11 +77,15 @@ contract DreamStory {
      @param min_down_price minimum download price in wei
      @param creator address of the creator of this story
      */
-    function DreamStory( uint _min_down_price, address _creator ) public {
+    function DreamStory( uint _min_down_price, address _creator, string _title, string _story ) public {
         // set author to message sender who is the creator of this dream story
         author= _creator;
         // set minimum download price
         min_down_price_wei= _min_down_price;
+        //set story title
+        story_title = _title;
+        //set story
+        story= _story;
     }
 
     /*
@@ -149,7 +157,7 @@ contract DreamStory {
      * Get summary of the dream story
      * @return
      */
-    function getSummary() public view returns ( uint, uint, uint, uint, uint, address )
+    function getSummary() public view returns ( uint, uint, uint, uint, uint, address, string, string )
     {
         return (
           address(this).balance,
@@ -157,7 +165,9 @@ contract DreamStory {
           downloads.length,
           min_down_price_wei,
           approvers_count,
-          author
+          author,
+          story_title,
+          story
         );
     }
 }

@@ -44,21 +44,15 @@ class FactoryIndex extends Component {
     // so we can access the stories object
     return (
       <Layout>
-        <div>
-          <link
-            rel="stylesheet"
-            href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"
-          ></link>
-          <h3>Dream Stories on slae</h3>
+        <h3>Dream Stories on slae</h3>
 
-          <Button
-            floated="right"
-            content="Create a Story"
-            icon="add"
-            primary={true}
-          />
-          {this.renderStories()}
-        </div>
+        <Button
+          floated="right"
+          content="Create a Story"
+          icon="add"
+          primary={true}
+        />
+        {this.renderStories()}
       </Layout>
     );
   }
