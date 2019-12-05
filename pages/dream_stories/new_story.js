@@ -8,6 +8,8 @@ import Layout from "../../componets/layout";
 import dream_factory from "../../ethereum/dream_factory";
 //import web3
 import web3 from "../../ethereum/web3";
+//import route helper
+import { Router } from "../../routes";
 
 //class based componet
 class NewDreamStory extends Component {
@@ -46,6 +48,8 @@ class NewDreamStory extends Component {
         .send({
           from: accounts[0]
         });
+      //redirect to the index page
+      Router.pushRoute("/");
     } catch (error) {
       this.setState({ error_msg: error.message });
     }

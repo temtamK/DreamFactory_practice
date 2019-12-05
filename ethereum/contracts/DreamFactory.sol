@@ -5,6 +5,7 @@ contract DreamFactory {
     // array of addresses of deployed dream stories
     address[] public deployed_dream_stories;
 
+    mapping(address => string) public stories_titles;
     /*
      * Create a new dream story
      * @param min_down_price minimum download price in wei
@@ -14,6 +15,8 @@ contract DreamFactory {
         address new_story = new DreamStory( _min_down_price, msg.sender, _title, _story );
         // save the deployed address
         deployed_dream_stories.push(new_story);
+        //save the story title
+        stories_titles[new_story]=_title;
     }
 
     /*
@@ -97,10 +100,11 @@ contract DreamStory {
         // check if the money is greater than zero
         require( msg.value > 0 );
         // increase the vote counts
+        if( !contributors[msg.sender]) {
         votes_count++;
         // set contributor address to true
         contributors[ msg.sender ]= true;
-    }
+    }}
 
     /*
      * Download (license of) the dream story
@@ -170,4 +174,12 @@ contract DreamStory {
           story
         );
     }
+
+    /*
+     * Get the number of downloads
+     * @return the length of downloads instance
+     */
+     function getDownloadsCount() public view returns (uint) {
+         return downloads.length;
+     }
 }
