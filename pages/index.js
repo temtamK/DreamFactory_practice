@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import DreamFactory instance
 import dream_factory from "../ethereum/dream_factory";
 // import layout file
-import Layout from "../componets/layout";
+import Layout from "../components/layout";
 // import Card UI component only
 import { Card } from "semantic-ui-react";
 // import Button UI component only

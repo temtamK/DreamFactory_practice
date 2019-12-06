@@ -17,7 +17,7 @@ else {
   // make own provider through infura
   const provider = new Web3.providers.HttpProvider(
     // put your infura api key for rinkeby
-    "https://rinkeby.infura.io/v3/266f4e9dc660472a9dde24c9fe69c10e"
+    "https://rinkeby.infura.io/v3/token"
   );
   web3 = new Web3(provider);
 }

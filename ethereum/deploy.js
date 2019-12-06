@@ -7,9 +7,9 @@ const factory_contract = require("./build/DreamFactory.json");
 // create a provider
 const provider = new HDWalletProvider(
   // put your seed words from metamask
-  "soldier catalog hair horse decrease tumble tooth swamp leopard busy vendor festival",
+  "seed word",
   // put your infura api key for rinkeby
-  "https://rinkeby.infura.io/v3/266f4e9dc660472a9dde24c9fe69c10e"
+  "https://rinkeby.infura.io/v3/token"
 );
 // get the web3 instance using the provider
 const web3 = new Web3(provider);

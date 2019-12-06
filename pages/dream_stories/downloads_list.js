@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import DownloadRow from "../../components/download_row";
 import Layout from "../../components/layout";
+import dream_story from "../../ethereum/dream_story";
+import { Table, Button } from "semantic-ui-react";
+import { Link } from "../../routes";
 
 class DownloadsList extends Component {
   static async getInitialProps(props) {

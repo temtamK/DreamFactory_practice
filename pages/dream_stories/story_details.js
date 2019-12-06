@@ -10,9 +10,19 @@ import { Card, Icon } from "semantic-ui-react";
 import { Grid, Input, Form, Message, Button } from "semantic-ui-react";
 // import Container and Header
 import { Container, Header } from "semantic-ui-react";
+//import route helper
+import { Link, Router } from "../../routes";
 
 // class based component
 class StoryDetails extends Component {
+  //state for form input and error message
+  state = {
+    title: "",
+    story: "",
+    min_down_price: "",
+    error_msg: "",
+    loading: false
+  };
   // get initial properties
   // the DreamStory address can be obtained from the argument props using the url
   // since the url includes the contract address

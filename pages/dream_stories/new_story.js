@@ -3,7 +3,7 @@ import React, { Component } from "react";
 //import Form, Button from semantic-ui-react
 import { Form, Button, Input, TextArea, Message } from "semantic-ui-react";
 //import loyout
-import Layout from "../../componets/layout";
+import Layout from "../../components/layout";
 //import DreamFactory
 import dream_factory from "../../ethereum/dream_factory";
 //import web3
